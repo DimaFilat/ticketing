@@ -22,7 +22,7 @@ beforeAll(async () => {
 
   await mongoose.connect(mongoUri, {
     useUnifiedTopology: true,
-    useNewUrlParser: true,
+    useNewUrlParser: true
   })
 })
 
@@ -47,10 +47,10 @@ global.signup = async () => {
     .post('/api/users/signup')
     .send({
       email,
-      password,
+      password
     })
     .expect(201)
 
-    const cookie = response.get('Set-Cookie')
-    return cookie
+  const cookie = response.get('Set-Cookie')
+  return cookie
 }
