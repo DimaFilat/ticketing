@@ -10,6 +10,8 @@ import { PaymentCreatedListener } from './events/listeners/payment-created-liste
 const PORT = 3000
 
 const start = async () => {
+  console.log('Starting...')
+
   if (!process.env.JWT_KEY) throw new Error('JWT_KEY must be defined')
   if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined')
   if (!process.env.NATS_CLUSTER_ID) {
@@ -41,7 +43,7 @@ const start = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
+      useCreateIndex: true
     })
     console.log('Connecting to mongodb')
   } catch (err) {
